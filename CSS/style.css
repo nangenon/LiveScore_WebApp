@@ -1,0 +1,468 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 août 2014, 09:37:03
+    Author     : formation1
+*/
+
+/*page de saisie de score*/
+
+input[type="checkbox"] { margin-top:2px; outline:none; -webkit-appearance: none; background-color: #fafafa; border: 1px solid lightgray; border-radius: 26px; cursor: pointer; height: 28px; position: relative; transition: border .25s .15s, box-shadow .25s .3s, padding .25s; width: 44px; vertical-align: top;}
+input[type="checkbox"]:after { background-color: white; border: 1px solid lightgray; border-radius: 24px; content: ''; display: block; height: 24px; left: 1px; position: absolute; right: 16px; top: 1px; transition: border .25s .15s, left .25s .1s, right .15s .175s; box-shadow: inset 0 0 0 13px rgba(0,0,0,0.07);}
+input[type="checkbox"]:checked { border-color: #43a9dd; box-shadow: inset 0 0 0 13px #43a9dd; padding-left: 18px; transition: border .25s, box-shadow .25s, padding .25s .15s;}
+input[type="checkbox"]:checked:after { border-color: #43a9dd; left: 16px; right: 0; transition: border .25s, left .15s .25s, right .25s .175s;}
+
+input[type="checkbox"].yellow:checked { border-color: gold; box-shadow: inset 0 0 0 13px gold; }
+input[type="checkbox"].yellow:checked:after { border-color: gold;}
+
+input[type="checkbox"].red:checked { border-color: crimson; box-shadow: inset 0 0 0 13px crimson; }
+input[type="checkbox"].red:checked:after { border-color: crimson;}
+
+
+.manche, .manche1, .manche2, .manche3, .manche4, .manche5, .manche6, .manche7 
+{
+    text-align: center;
+}
+
+h2
+{
+    text-align: center; 
+    
+}
+
+
+@media screen and (min-width: 768px) {
+.score
+{
+    text-align: center;
+    border: 0;
+    font-size: 20px;
+}
+}
+
+@media screen and (min-width: 768px) {
+.score
+{
+    text-align: center;
+    border: 0;
+    font-size: 3vw;
+}
+}
+
+
+
+
+
+/*page affichage_score_all*/
+.scoll
+{
+    overflow-y: hidden;
+}
+#affichage_all 
+{
+    width: 100%;
+    text-align: center; 
+  
+    
+}
+#affichage_all  img
+{
+    border:  1px solid white;
+    width:100px;
+    height:65px;   
+}
+#affichage_all .table
+{
+    font-size: 40px;
+    
+}
+#affichage_all .td_score .score
+{
+    font-size: 70px;
+}
+#affichage_all .td_manche .res_manche
+{
+    font-size: 70px;
+}
+#affichage_all .nom
+{
+    font-size: 40px;
+    text-align: center; 
+}
+
+
+#affichage_all  tr
+{
+height: 125px; 
+ 
+}
+#affichage_all  p
+{
+    margin: auto;
+}
+#affichage_all .td_table
+{
+    width: 70px;
+   
+    
+}
+#affichage_all .td_pays
+{
+width: 100px;    
+    
+}
+#affichage_all .pays
+{
+ 
+margin: auto;
+width:100px;
+height:65px; 
+}
+
+
+#affichage_all .td_score
+{
+width:100px;
+}
+#affichage_all  .td_manche
+{
+width:60px;
+}
+.affichage
+{
+margin: 40px;
+}
+.affichage_footer
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+   
+}
+.affichage_footer .sponsor
+{
+    width: 100%;
+    height: 150px;
+   
+}
+
+.td_table
+{
+    width: 100px;
+   
+    
+}
+
+/*affichage une table*/
+
+@media screen and (min-width: 991px)  {
+
+#affichage_one
+{
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+}
+
+
+#affichage_one  .tr_nom
+{
+height: 80px;    
+    
+}
+#affichage_one  .tr_pays_manche
+{
+height: 130px;    
+    
+}
+
+#affichage_one  .tr_faute_score
+{
+height: 130px;    
+    
+}
+#affichage_one  .tr_tm_score
+{
+height: 130px;    
+    
+}
+#affichage_one  .td_nom
+{
+width: 50%;   
+    
+}
+#affichage_one .td_pays
+{
+width: 200px;
+  
+}
+#affichage_one .td_manche, #affichage_one .td_score
+{
+width: 500px;
+  
+}
+
+
+#affichage_one .tr_pays_manche .td_pays  img
+{
+    width:175px;
+    height:100px;  
+    border:  1px solid white;
+    margin: auto;
+}
+
+
+#affichage_one .score_table
+{
+    font-size: 200px;
+}
+#affichage_one .manche_table
+{
+    font-size: 90px;
+}
+
+#affichage_one .nom_table
+{
+    font-size: 40px ;
+}
+#affichage_one .pays_table
+{
+    font-size: 70px;
+}
+#affichage_one .carton
+{
+    width: 45px;
+    height: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+}
+
+@media screen and (min-width: 500px) and (max-width: 990px) { 
+
+#affichage_one
+{
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+}
+
+
+#affichage_one  .tr_nom
+{
+height: 40px;    
+    
+}
+#affichage_one  .tr_pays_manche
+{
+height: 60px;    
+    
+}
+
+#affichage_one  .tr_faute_score
+{
+height: 60px;    
+    
+}
+#affichage_one  .tr_tm_score
+{
+height: 60px;    
+    
+}
+#affichage_one  .td_nom
+{
+width: 50%;   
+    
+}
+#affichage_one .td_pays
+{
+width: 100px;
+text-align: center;
+  
+}
+#affichage_one .td_manche, #affichage_one .td_score
+{
+width: 500px;
+  
+}
+
+
+#affichage_one .tr_pays_manche .td_pays  img
+{
+    width:80px;
+    height:50px;   
+    border:  1px solid white;
+    margin: auto;
+}
+
+
+#affichage_one .score_table
+{
+    font-size: 100px;
+}
+#affichage_one .manche_table
+{
+    font-size: 45px;
+}
+
+#affichage_one .nom_table
+{
+    font-size: 20px ;
+}
+#affichage_one .pays_table
+{
+    font-size: 35px;
+}
+#affichage_one .carton
+{
+    width: 10px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+    
+}
+}
+@media screen and (max-width: 499px) { 
+
+#affichage_one
+{
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+}
+
+
+#affichage_one  .tr_nom
+{
+height: 20px;    
+    
+}
+#affichage_one  .tr_pays_manche
+{
+height: 30px;    
+    
+}
+
+#affichage_one  .tr_faute_score
+{
+height: 30px;    
+    
+}
+#affichage_one  .tr_tm_score
+{
+height: 30px;    
+    
+}
+#affichage_one  .td_nom
+{
+width: 50%;   
+    
+}
+#affichage_one .td_pays
+{
+width: 50px;
+text-align: center;
+  
+}
+#affichage_one .td_manche, #affichage_one .td_score
+{
+width: 100px;
+  
+}
+
+
+#affichage_one .tr_pays_manche .td_pays  img
+{
+    width:40px;
+    height:20px;   
+    border:  1px solid white;
+    margin: auto;
+}
+
+
+#affichage_one .score_table
+{
+    font-size: 50px;
+}
+#affichage_one .manche_table
+{
+    font-size: 20px;
+}
+
+#affichage_one .nom_table
+{
+    font-size: 10px ;
+}
+#affichage_one .pays_table
+{
+    font-size: 15px;
+}
+#affichage_one .carton
+{
+    width: 10px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+    
+}
+
+
+}
+
+/*bxslider*/
+.bx-wrapper .bx-viewport {
+	-moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	box-shadow: 0 0 5px #ccc;
+	border:  5px solid #fff;
+	left: 0px;
+	background: black;
+       
+	
+	/*fix other elements on the page moving (on Chrome)*/
+	-webkit-transform: translatez(0);
+	-moz-transform: translatez(0);
+    	-ms-transform: translatez(0);
+    	-o-transform: translatez(0);
+    	transform: translatez(0);
+}
+/*toutes les ecrans */
+.body_affichage
+{
+   background-color: black;
+   color: white;
+}
+
+
+
+/*page affichage_1ecran*/
+
+.score
+{ 
+    text-align: center;
+    font-size:14px;
+    border: 0;
+}
+ecran_footer
+{
+    height: 200px;
+   
+}
+
+
+@media screen and (min-width: 768px) {
+.score
+{
+    text-align: center;
+    border: 0;
+    font-size: 2.5vw;
+}
+}
+
+
+

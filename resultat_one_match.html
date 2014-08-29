@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>affichage du match</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" >
+        <link href="bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" >
+        <link href="CSS/style.css" rel="stylesheet" >
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="scoll body_affichage">
+        <div class="affichage">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+                    <header class="">
+                    <div>
+                        <span></span>
+                    </div>
+                    </header>
+                    <table class="table-bordered" id="affichage_one">
+                        <tbody>
+                            <tr class="tr_nom">
+                                 <td colspan="2" class="td_nom">
+                                     <span id="nomj1" class="nom_table archive"></span>
+                                </td>
+                                <td colspan="2" class="td_nom">
+                                    <span id="nomj2" class="nom_table archive"></span>
+                                </td>
+                            </tr>
+                            <tr class="tr_pays_manche">
+                                <td class="td_pays">
+                                    <span id="paysj1" class="pays_table archive "></span>
+                                </td>
+                                <td class="td_manche">
+                                    <span id="manchej1" class="manche_table archive score"></span>
+                                </td>
+                                <td class="td_manche">
+                                    <span id="manchej2" class="manche_table archive score"></span>
+                                </td>
+                                <td class="td_pays">
+                                    <span id="paysj2" class="pays_table archive "></span>
+                                </td>
+                            </tr>
+                           
+                            <tr class="tr_faute_score">
+                                <td class="td_faute">
+                                    <span class="faute_table archive score"><img src="images/carton/Jaune.png" class="carton" id="jaunej1"><img src="images/carton/JR1.png" class="carton" id="jr1j1"><img src="images/carton/JR2.png" class="carton" id="jr2j1"></span>
+                                </td>
+                                <td rowspan="2" class="td_score">
+                                    <span id="scorej1" class="score_table archive score"></span>
+                                </td>
+                                <td rowspan="2" class="td_score">
+                                    <span id="scorej2" class="score_table archive score"></span>
+                                </td>
+                                <td class="td_faute">
+                                    <span class="faute_table archive score"><img src="images/carton/Jaune.png" class="carton" id="jaunej2"><img src="images/carton/JR1.png" class="carton" id="jr1j2"><img src="images/carton/JR2.png" class="carton" id="jr2j2"></span>
+                                </td>
+                            </tr>
+                            <tr class="tr_tm_score">
+                                <td class="td_tm">
+                                    <span class="tm_table archive score"><img src="images/carton/WO.png" class="carton" id="woj1"><img src="images/carton/TM.png" class="carton" id="tmj1"></span>
+                                </td>
+                                <td class="td_tm">
+                                    <span class="tm_table archive score"><img src="images/carton/WO.png" class="carton" id="woj2"><img src="images/carton/TM.png" class="carton" id="tmj2"></span>
+                                </td>
+                              
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <footer class="affichage_footer">
+                    <div>
+                        <span id="sponsor" class="hidden-xs"></span>
+                    </div>
+                </footer>
+                </div>
+            </div>
+        </div> 
+        <script type="text/javascript" src="jQuery/jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+          var num_table;
+    
+            $(function() { 
+                $('.carton').hide();
+                
+                 mesInfo=new Array();
+                 get=new Array();
+                 var x ;
+                 
+                 function extractUrlParams()
+                 {	
+                        var t = location.search.substring(1).split('&');
+                         get = [];
+                        for (var i=0; i<t.length; i++){
+                                 x = t[ i ].split('=');
+                                get[x[0]]=x[1];
+                        }
+                        //alert (t);
+                        //alert (get[x[0]]);
+                        //alert (x);
+                        //alert (get[x[0]]);
+                        return get ;
+                      
+                 }
+                 
+              
+                  
+            $(document).ready(function(){
+                
+                //recuperation du numero de la page
+                extractUrlParams();
+               // alert (get[0]);
+               // alert (get[x[0]]);
+                num_table=get[x[0]];
+                //alert (num_table);
+                
+            //reccup info match
+             $.ajax( {
+                type: "GET",
+                url : "http://livescore.creaweb.fr/tmp/InfoTournoi.json",
+                dataType: 'json' }).done(function(data){
+                mesInfo=eval(data);
+                
+                nbretable= mesInfo['table'];   
+                //alert (nbretable);
+                
+                nbremanche= mesInfo['manche'];
+                //alert(nbremanche);
+            
+           
+           //affichage du sponsor
+           $('#sponsor').html('<img src="sponsor/'+mesInfo['sponsor']+'" class="sponsor img-responsive " alt="Responsive image">');
+           });
+                       
+            Rafraichir_info();
+            Rafraichir_score();
+            Rafraichir_carton();
+            
+            
+            });
+        
+             //rafraichissement des infos
+            setInterval("Rafraichir_info()", 2000);
+             
+             //rafraichissement des scores
+            setInterval("Rafraichir_score()",2000);
+            
+              //rafraichissement des scores
+            setInterval("Rafraichir_carton()",2000);
+
+               });
+            
+            var mesScores=new Array();
+             function Rafraichir_info(){
+        
+                $.ajax( {
+                type: "GET",
+                url : 'http://livescore.creaweb.fr/tmp/Table'+num_table+'.json',
+                dataType: 'json' }).done(function(data){
+                mesScores=eval(data);
+                
+                if (mesScores['statut'] != 5  )
+                {
+                     //ajout des noms                  
+                     $('#nomj1').html(mesScores['nomj1']);
+                     $('#nomj2').html(mesScores['nomj2']);
+                     //ajout des pays
+                     /*$('#paysj1').html(mesScores['paysj1']);
+                     $('#paysj2').html(mesScores['paysj2']);*/
+                     
+                     //affichage drapeau     
+                      var paysj1 = mesScores['paysj1'];
+                      var paysj2 = mesScores['paysj2'];
+                      
+                  
+                    $('#paysj1').html('<img src="images/drapeaux/'+paysj1+'.jpeg" class=" img-responsive " alt="Responsive image">');
+                    $('#paysj2').html('<img src="images/drapeaux/'+paysj2+'.jpeg" class=" img-responsive " alt="Responsive image">');
+                }
+                else
+                {
+                    $('.archive').hide();
+                }
+                
+                if (mesScores['statut'] == 2  )
+                {
+                    $('.archive').show();
+                    $('.score').hide();
+                    
+                }
+                
+                if (mesScores['statut'] == 1  )
+                {
+                    $('.score').show();
+                    
+                }
+                
+                    
+                    
+                     });
+                     };
+    
+            function Rafraichir_score() {
+   
+          
+                $.ajax( {
+                type: "GET",
+                url : "http://livescore.creaweb.fr/tmp/Table"+num_table+".json",
+                dataType: 'json' }).done(function(data){
+                mesScores=eval(data);
+                
+              var num_manche= mesScores['num_manche'];
+              //alert('num manche est'+num_manche );
+                    //affichage des score
+                    
+                    if (mesScores['statut'] != 5  )
+                {
+                    if(mesScores['num_manche'] > mesInfo['manche'])
+                    {
+                     $('#scorej1').html(mesScores['scorej1m'+(num_manche-1)]);
+                     $('#scorej2').html(mesScores['scorej2m'+(num_manche-1)]);
+                     //cacher resultat si valeur 0
+                    
+                    
+                    //calcul de manche gagné
+                    $('#manchej1').html(mesScores['resj1']);
+                    $('#manchej2').html(mesScores['resj2']);
+                }
+                    
+                    else
+                    {
+                     $('#scorej1').html(mesScores['scorej1m'+num_manche]);
+                     $('#scorej2').html(mesScores['scorej2m'+num_manche]);
+                     //cacher resultat si valeur 0
+                    
+                    
+                    //calcul de manche gagné
+                    $('#manchej1').html(mesScores['resj1']);
+                    $('#manchej2').html(mesScores['resj2']);
+                }
+                
+                }
+                 else
+                {
+                    $('.archive').hide();
+                }
+                
+               if (mesScores['statut'] == 2  )
+                {
+                    $('.archive').show();
+                    $('.score').hide();
+                    
+                }
+                
+                if (mesScores['statut'] == 1  )
+                {
+                    $('.score').show();
+                    
+                }
+            
+                });
+                 };
+                 
+                var cartons=new Array();
+                function Rafraichir_carton() {
+   
+          
+                $.ajax( {
+                type: "GET",
+                url : "http://livescore.creaweb.fr/tmp/carton_table"+num_table+".json",
+                dataType: 'json' }).done(function(data){
+                cartons=eval(data);
+                
+             // var num_manche= cartons['num_manche'];
+              
+              //affichage du carton jaune
+              
+              if (cartons['jaunej1'] ==1 )
+              {
+                  $('#jaunej1').show();
+              }
+              else
+              {
+               $('#jaunej1').hide();   
+              }
+              if (cartons['jaunej2'] ==1 )
+              {
+                  $('#jaunej2').show();
+              }
+              else
+              {
+               $('#jaunej2').hide();   
+              }
+              if (cartons['jr1j1'] ==1 )
+              {
+                  $('#jr1j1').show();
+              }
+              else
+              {
+               $('#jr1j1').hide();   
+              }
+              if (cartons['jr1j2'] ==1 )
+              {
+                  $('#jr1j2').show();
+              }
+              else
+              {
+               $('#jr1j2').hide();   
+              }
+              if (cartons['jr2j1'] ==1 )
+              {
+                  $('#jr2j1').show();
+              }
+              else
+              {
+               $('#jr2j1').hide();   
+              }
+              if (cartons['jr2j2'] ==1 )
+              {
+                  $('#jr2j2').show();
+              }
+              else
+              {
+               $('#jr2j2').hide();   
+              }
+              if (cartons['woj1'] ==1 )
+              {
+                  $('#woj1').show();
+              }
+              else
+              {
+               $('#woj1').hide();   
+              }
+              if (cartons['woj2'] ==1 )
+              {
+                  $('#woj2').show();
+              }
+              else
+              {
+               $('#woj2').hide();   
+              }
+              if (cartons['tmj1'] ==1 )
+              {
+                  $('#tmj1').show();
+              }
+              else
+              {
+               $('#tmj1').hide();   
+              }
+              if (cartons['tmj2'] ==1 )
+              {
+                  $('#tmj2').show();
+              }
+              else
+              {
+               $('#tmj2').hide();   
+              }
+              
+                });
+                 };
+            
+        </script>
+    </body>
+</html>

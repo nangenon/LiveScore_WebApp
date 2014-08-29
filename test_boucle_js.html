@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table border="1"> 
+            <thead>
+            </thead>
+            <tbody id="monTableau">
+            </tbody>    
+        </table>
+        <div>TODO write content</div>
+        
+         <script type="text/javascript" src="/projet_server/jQuery/jquery-1.11.1.js"></script>
+        <script>
+            var A, B;
+            $('document').ready(function(){ alert('coucou');
+                
+                $('#monTableau').html('');
+                for (B=1; B<5; B++) {
+                    $('#monTableau').append('<tr id="ligne'+B+'">');
+                    for (A=1; A<10; A++) {
+                        $('#monTableau').append('<td id="Col'+A+'"> table '+A+' </td>');
+                        }
+                    $('#monTableau').append('</tr>');
+                }
+            });
+            
+        </script>
+    </body>
+</html>
