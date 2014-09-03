@@ -9,6 +9,7 @@ and open the template in the editor.
         <title>affichage du match</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="15"> 
         
         <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" >
         <link href="bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" >
@@ -80,6 +81,10 @@ and open the template in the editor.
 
                         </tbody>
                     </table>
+                    
+                    <div align="center">
+                        <a href="index.html" >Retour</a>
+                    </div>
                     <footer class="affichage_footer">
                     <div>
                         <span id="sponsor" class="hidden-xs"></span>
@@ -109,9 +114,6 @@ and open the template in the editor.
                                 get[x[0]]=x[1];
                         }
                         //alert (t);
-                        //alert (get[x[0]]);
-                        //alert (x);
-                        //alert (get[x[0]]);
                         return get ;
                       
                  }
@@ -139,10 +141,12 @@ and open the template in the editor.
                 
                 nbremanche= mesInfo['manche'];
                 //alert(nbremanche);
-            
+                
+                
            
            //affichage du sponsor
-           $('#sponsor').html('<img src="sponsor/'+mesInfo['sponsor']+'" class="sponsor img-responsive " alt="Responsive image">');
+           $('#sponsor').html('<img src="sponsor/'+mesInfo['sponsor']+'" class="sponsor img-responsive" alt="Responsive image" />');
+           //alert(mesInfo['sponsor'])
            });
                        
             Rafraichir_info();
@@ -153,13 +157,17 @@ and open the template in the editor.
             });
         
              //rafraichissement des infos
-            setInterval("Rafraichir_info()", 2000);
+             /* remplacement des rafraichissement avec SetInterval car problème avec phoneGap
+              *mise en place d'une balise meta refresh  
+              *
+              */
+           // setInterval("Rafraichir_info()", 2000);
              
              //rafraichissement des scores
-            setInterval("Rafraichir_score()",2000);
+            //setInterval("Rafraichir_score()",2000);
             
               //rafraichissement des scores
-            setInterval("Rafraichir_carton()",2000);
+            //setInterval("Rafraichir_carton()",2000);
 
                });
             
@@ -206,9 +214,7 @@ and open the template in the editor.
                     $('.score').show();
                     
                 }
-                
-                    
-                    
+
                      });
                      };
     

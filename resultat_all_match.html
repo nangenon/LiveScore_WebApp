@@ -6,11 +6,11 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>affichage des matchs</title>
+        <title>Affichage des matchs</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
+        <meta http-equiv="refresh" content="30" id="meta"> 
+
         <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" >
         <link href="bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" >
         <link href="module_jquery/bxslider/jquery.bxslider.css" rel="stylesheet" >
@@ -22,6 +22,9 @@ and open the template in the editor.
             <div class="slider8" id="tableau">
                 
             </div>   
+            <div align="center">
+                <a href="index.html" >Retour</a>
+            </div>
                 <footer class="affichage_footer">
                     <div>
                         <span id="sponsor"></span>
@@ -52,16 +55,22 @@ and open the template in the editor.
                 dataType: 'json' }).done(function(data){
                 mesInfo=eval(data);
                 
-                //nbretable= mesInfo['table'];   
+                nbretable= mesInfo['table'];   
                 //alert (nbretable);
                 
                // nbremanche= mesInfo['manche'];
                // alert(nbremanche);                  
-                   
+                //parametre du temps de rafraichissement de  la page   
+                metatable= Math.ceil(nbretable/2);
+                metatable=(metatable*5);
+                //alert(metatable);
                 
-               // alert (mesInfo['table']);
+                //ecriture du metarefesh
+                $('#meta').html('<meta http-equiv="refresh" content="'+metatable+'" id="meta">')
                 
-                //Creation du tableeau
+               
+                
+                //Creation du tableau
                 
                for (t1=1; t1<=mesInfo['table']; t1++) 
                 {
@@ -99,6 +108,7 @@ and open the template in the editor.
               mode: 'vertical',
               minSlides: 2,
               slideMargin: 5,
+              infiniteLoop:false,
               auto: true,
               controls: false,
               pager: false,
@@ -108,7 +118,8 @@ and open the template in the editor.
     
             //insertion information 
              //affichage du sponsor
-           $('#sponsor').html('<img src="sponsor/'+mesInfo['sponsor']+'" class="sponsor">');
+           $('#sponsor').html('<img src="sponsor/'+mesInfo['sponsor']+'" class="sponsor img-responsive" alt="Responsive image" >');
+           //alert(mesInfo['sponsor']);
             
             // Rafraichissement au chargement de la page
                Rafraichir_info();  
@@ -118,10 +129,14 @@ and open the template in the editor.
             
             //Rafraichissement toute les X secondes
             //rafraichissement des infos
-            setInterval("Rafraichir_info()", 2000);
+            /*probleme avec phonegap la fonction setInterval ne fonction pas
+             * remplacement pas le rafraichissement de la page complète avec la balise meta refresh
+             */
+            
+            //setInterval("Rafraichir_info()", 2000);
              
              //rafraichissement des scores
-            setInterval("Rafraichir_score()",2000);
+            //setInterval("Rafraichir_score()",2000);
             
         });
         

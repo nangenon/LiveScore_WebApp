@@ -54,9 +54,10 @@ h2
 
 
 
+/*page affichage_score_all
+format pc 1200px*/
 
-
-/*page affichage_score_all*/
+@media screen and (min-width: 1291px)  {
 .scoll
 {
     overflow-y: hidden;
@@ -153,13 +154,420 @@ margin: 40px;
 .td_table
 {
     width: 100px;
+
+}
+}
+@media screen and (min-width: 991px) and (max-width: 1290px) { 
+   
+  .scoll
+{
+    overflow-y: hidden;
+}
+#affichage_all 
+{
+    width: 100%;
+    text-align: center; 
+  
+    
+}
+#affichage_all  img
+{
+    border:  1px solid white;
+    width:50px;
+    height:30px;   
+    margin: auto;
+}
+#affichage_all .table
+{
+    font-size: 25px;
+    
+    
+}
+#affichage_all .td_score .score
+{
+    font-size: 40px;
+}
+#affichage_all .td_manche .res_manche
+{
+    font-size: 40px;
+}
+#affichage_all .nom
+{
+    font-size: 25px;
+    text-align: center; 
+}
+
+
+#affichage_all  tr
+{
+height: 100px; 
+ 
+}
+#affichage_all  p
+{
+    margin: auto;
+}
+#affichage_all .td_table
+{
+    width: 40px;
    
     
+}
+#affichage_all .td_pays
+{
+width: 60px;    
+    
+}
+#affichage_all .pays
+{
+ 
+margin: auto;
+width:60px;
+height:25px; 
+}
+
+
+#affichage_all .td_score
+{
+width:50px;
+}
+#affichage_all  .td_manche
+{
+width:40px;
+}
+.affichage
+{
+margin: 20px;
+}
+.affichage_footer
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+ 
+   
+}
+.affichage_footer .sponsor
+{
+    width: 100%;
+    height: 150px;
+
+}
+
+
+}
+
+@media screen and (min-width: 791px) and (max-width: 990px) { 
+   
+  .scoll
+{
+    overflow-y: hidden;
+}
+#affichage_all 
+{
+    width: 100%;
+    text-align: center; 
+  
+    
+}
+#affichage_all  img
+{
+    border:  1px solid white;
+    width:55px;
+    height:35px;   
+    margin: auto;
+}
+#affichage_all .table
+{
+    font-size: 20px;
+    
+    
+}
+#affichage_all .td_score .score
+{
+    font-size: 30px;
+}
+#affichage_all .td_manche .res_manche
+{
+    font-size: 30px;
+}
+#affichage_all .nom
+{
+    font-size: 20px;
+    text-align: center; 
+}
+
+
+#affichage_all  tr
+{
+height: 80px; 
+ 
+}
+#affichage_all  p
+{
+    margin: auto;
+}
+#affichage_all .td_table
+{
+    width: 35px;
+   
+    
+}
+#affichage_all .td_pays
+{
+width: 60px;    
+    
+}
+#affichage_all .pays
+{
+ 
+margin: auto;
+width:55px;
+height:25px; 
+}
+
+
+#affichage_all .td_score
+{
+width:45px;
+}
+#affichage_all  .td_manche
+{
+width:35px;
+}
+.affichage
+{
+margin: 20px;
+}
+.affichage_footer
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    
+   
+}
+.affichage_footer .sponsor
+{
+    width: 100%;
+    height: 150px;
+   
+}
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 790px) { 
+   
+  .scoll
+{
+    overflow-y: hidden;
+}
+#affichage_all 
+{
+    width: 100%;
+    text-align: center; 
+  
+    
+}
+#affichage_all  img
+{
+    border:  1px solid white;
+    width:50px;
+    height:30px;   
+    margin: auto;
+}
+#affichage_all .table
+{
+    font-size: 15px;
+    
+    
+}
+#affichage_all .td_score .score
+{
+    font-size: 25px;
+}
+#affichage_all .td_manche .res_manche
+{
+    font-size: 25px;
+}
+#affichage_all .nom
+{
+    font-size: 15px;
+    text-align: center; 
+}
+
+
+#affichage_all  tr
+{
+height: 80px; 
+ 
+}
+#affichage_all  p
+{
+    margin: auto;
+}
+#affichage_all .td_table
+{
+    width: 30px;
+   
+    
+}
+#affichage_all .td_pays
+{
+width: 55px;    
+    
+}
+#affichage_all .pays
+{
+ 
+margin: auto;
+width:50px;
+height:25px; 
+}
+
+
+#affichage_all .td_score
+{
+width:35px;
+}
+#affichage_all  .td_manche
+{
+width:35px;
+}
+.affichage
+{
+margin: 20px;
+}
+.affichage_footer
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    display: none;
+   
+}
+.affichage_footer .sponsor
+{
+    width: 100%;
+    height: 150px;
+    display: none;
+   
+}
+
+.td_table
+{
+    width: 100px;
+
+}  
+
+}
+
+
+@media screen and (max-width: 499px) { 
+   
+  .scoll
+{
+    overflow-y: hidden;
+}
+#affichage_all 
+{
+    width: 100%;
+    text-align: center; 
+    
+}
+#affichage_all  img
+{
+    border:  1px solid white;
+    width:25px;
+    height:15px;   
+    margin: auto;
+}
+#affichage_all .table
+{
+    font-size: 10px;
+    
+}
+#affichage_all .td_score .score
+{
+    font-size: 15px;
+}
+#affichage_all .td_manche .res_manche
+{
+    font-size: 15px;
+}
+#affichage_all .nom
+{
+    font-size: 12px;
+    text-align: center; 
+    
+}
+
+#affichage_all  tr
+{
+height: 80px; 
+ 
+}
+#affichage_all  p
+{
+    margin: auto;
+}
+#affichage_all .td_table
+{
+    width: 25px;
+   
+    
+}
+#affichage_all .td_pays
+{
+width: 30px;    
+    
+}
+#affichage_all .pays
+{
+ 
+margin: auto;
+width:30px;
+height:15px; 
+}
+
+
+#affichage_all .td_score
+{
+width:25px;
+}
+#affichage_all  .td_manche
+{
+width:25px;
+}
+.affichage
+{
+margin: 5px;
+}
+.affichage_footer
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    display: none;
+   
+}
+.affichage_footer .sponsor
+{
+    width: 100%;
+    height: 150px;
+    display: none;
+   
+}
+
 }
 
 /*affichage une table*/
 
-@media screen and (min-width: 991px)  {
+@media screen and (min-width: 1201px)  {
 
 #affichage_one
 {
@@ -242,8 +650,176 @@ width: 500px;
     
 }
 }
+@media screen and (min-width: 991px) and (max-width: 1200px) { 
 
-@media screen and (min-width: 500px) and (max-width: 990px) { 
+#affichage_one
+{
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+}
+
+
+#affichage_one  .tr_nom
+{
+height: 50px;    
+    
+}
+#affichage_one  .tr_pays_manche
+{
+height: 70px;    
+    
+}
+
+#affichage_one  .tr_faute_score
+{
+height: 70px;    
+    
+}
+#affichage_one  .tr_tm_score
+{
+height: 70px;    
+    
+}
+#affichage_one  .td_nom
+{
+width: 50%;   
+    
+}
+#affichage_one .td_pays
+{
+width: 110px;
+text-align: center;
+  
+}
+#affichage_one .td_manche, #affichage_one .td_score
+{
+width: 500px;
+  
+}
+
+
+#affichage_one .tr_pays_manche .td_pays  img
+{
+    width:80px;
+    height:50px;   
+    border:  1px solid white;
+    margin: auto;
+}
+
+
+#affichage_one .score_table
+{
+    font-size: 120px;
+}
+#affichage_one .manche_table
+{
+    font-size: 55px;
+}
+
+#affichage_one .nom_table
+{
+    font-size: 20px ;
+}
+#affichage_one .pays_table
+{
+    font-size: 35px;
+}
+#affichage_one .carton
+{
+    width: 20px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+    
+}
+}
+@media screen and (min-width: 791px) and (max-width: 990px) { 
+
+#affichage_one
+{
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+}
+
+
+#affichage_one  .tr_nom
+{
+height: 45px;    
+    
+}
+#affichage_one  .tr_pays_manche
+{
+height: 65px;    
+    
+}
+
+#affichage_one  .tr_faute_score
+{
+height: 65px;    
+    
+}
+#affichage_one  .tr_tm_score
+{
+height: 65px;    
+    
+}
+#affichage_one  .td_nom
+{
+width: 50%;   
+    
+}
+#affichage_one .td_pays
+{
+width: 100px;
+text-align: center;
+  
+}
+#affichage_one .td_manche, #affichage_one .td_score
+{
+width: 500px;
+  
+}
+
+
+#affichage_one .tr_pays_manche .td_pays  img
+{
+    width:80px;
+    height:50px;   
+    border:  1px solid white;
+    margin: auto;
+}
+
+
+#affichage_one .score_table
+{
+    font-size: 110px;
+}
+#affichage_one .manche_table
+{
+    font-size: 50px;
+}
+
+#affichage_one .nom_table
+{
+    font-size: 20px ;
+}
+#affichage_one .pays_table
+{
+    font-size: 35px;
+}
+#affichage_one .carton
+{
+    width: 15px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+    
+}
+}
+
+@media screen and (min-width: 500px) and (max-width: 790px) { 
 
 #affichage_one
 {
